@@ -72,13 +72,13 @@ if [[ "${_git}" == true ]]; then
   makedepends+=(
     git
   )
-  src="${_tarname}::git+${_url}#branch=${_branch}"
+  _src="${_tarname}::git+${_url}#branch=${_branch}"
 elif [[ "${_git}" == false ]]; then
   makedepends+=(
     curl
     jq
   )
-  src="${_tarname}.tar.gz::${_url}/archive/refs/heads/${_branch}.tar.gz"
+  _src="${_tarname}.tar.gz::${_url}/archive/refs/heads/${_branch}.tar.gz"
 fi
 source=(
   "${_src}"
