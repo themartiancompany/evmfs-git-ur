@@ -9,7 +9,8 @@ _os="$( \
 _git='false'
 _offline='false'
 _proj="hip"
-_pkgname=evmfs
+_pkg=evmfs
+_pkgname="${_pkg}"
 pkgname="${_pkgname}-git"
 pkgver="0.0.0.0.0.0.0.0.0.0.0.0.1".r2.g"17462bf25f990eeb255a2b6831d80e9271d170cd"
 pkgrel=1
@@ -20,13 +21,15 @@ pkgdesc="${_pkgdesc[*]}"
 arch=(
   any
 )
+_branch="master"
+_tarname="${_pkg}-${_branch}"
 _gl="gitlab.com"
 _gh="github.com"
 _host="https://${_gh}"
 _ns='themartiancompany'
-_local="file://${HOME}/${_pkgname}"
-url="${_host}/${_ns}/${_pkgname}"
-_gh_api="https://api.${_gh}/repos/${_ns}/${_pkgname}"
+_local="file://${HOME}/${_pkg}"
+url="${_host}/${_ns}/${_pkg}"
+_gh_api="https://api.${_gh}/repos/${_ns}/${_pkg}"
 license=(
   'AGPL3'
 )
@@ -66,8 +69,6 @@ _url="${url}"
 if [[ "${_offline}" == true ]]; then
   _url="${_local}"
 fi
-_branch="master"
-_tarname="${_pkg}-${_branch}"
 if [[ "${_git}" == true ]]; then
   makedepends+=(
     git
@@ -178,7 +179,7 @@ _git_pkgver() {
 
 pkgver() {
   cd \
-    "${_pkgname}-${_branch}"
+    "${_tarname}"
   if [[ "${_git}" == true ]]; then
     _git_pkgver
   elif [[ "${_git}" == false ]]; then
@@ -195,7 +196,7 @@ build() {
 
 package() {
   cd \
-    "${_pkgname}-${_branch}"
+    "${_tarname}"
   make \
     DESTDIR="${pkgdir}" \
     PREFIX="/usr" \
