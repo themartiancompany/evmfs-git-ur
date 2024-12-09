@@ -12,7 +12,7 @@ _proj="hip"
 _pkg=evmfs
 _pkgname="${_pkg}"
 pkgname="${_pkgname}-git"
-pkgver=0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.r37.g27924be
+pkgver=0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.r57.g33d43c8
 pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine network file system."
