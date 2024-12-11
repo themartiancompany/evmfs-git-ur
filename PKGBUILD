@@ -8,11 +8,13 @@ _os="$( \
     -o)"
 _git='true'
 _offline='false'
+_solc="true"
+_hardhat="false"
 _proj="hip"
 _pkg=evmfs
 _pkgname="${_pkg}"
 pkgname="${_pkgname}-git"
-pkgver=0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.r61.ge53f982
+pkgver=0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.r68.g47dd224
 pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine network file system."
@@ -47,6 +49,15 @@ makedepends=(
   'make'
   'solidity-compiler'
 )
+if [[ "${_solc}" == "true" ]]; then
+  makedepends+=(
+    "solidity0.8.24"
+  )
+elif [[ "${_hardhat}" == "true" ]]; then
+  makedepends+=(
+    "hardhat"
+  )
+fi
 checkdepends=(
   shellcheck
 )
