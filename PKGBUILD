@@ -9,12 +9,12 @@ _os="$( \
 _git='true'
 _offline='false'
 _solc="true"
-_hardhat="false"
+_hardhat="true"
 _proj="hip"
 _pkg=evmfs
 _pkgname="${_pkg}"
 pkgname="${_pkgname}-git"
-pkgver=0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.r68.g47dd224
+pkgver=0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.r77.gda23964
 pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine network file system."
