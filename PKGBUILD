@@ -9,7 +9,7 @@ _os="$( \
 _git='true'
 _offline='false'
 _solc="true"
-_hardhat="true"
+_hardhat="false"
 _proj="hip"
 _pkg=evmfs
 _pkgname="${_pkg}"
@@ -46,8 +46,8 @@ depends=(
   depends+=(
   )
 makedepends=(
+  'evm-make'
   'make'
-  'solidity-compiler'
 )
 if [[ "${_solc}" == "true" ]]; then
   makedepends+=(
