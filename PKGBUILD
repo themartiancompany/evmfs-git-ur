@@ -60,7 +60,7 @@ if [[ "${_hardhat}" == "true" ]]; then
   )
 fi
 checkdepends=(
-  shellcheck
+  'shellcheck'
 )
 optdepends=(
 )
