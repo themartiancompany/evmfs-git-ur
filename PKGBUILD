@@ -83,13 +83,13 @@ if [[ "${_offline}" == true ]]; then
 fi
 if [[ "${_git}" == true ]]; then
   makedepends+=(
-    git
+    'git'
   )
   _src="${_tarname}::git+${_url}#branch=${_branch}"
 elif [[ "${_git}" == false ]]; then
   makedepends+=(
-    curl
-    jq
+    'curl'
+    'jq'
   )
   _src="${_tarname}.tar.gz::${_url}/archive/refs/heads/${_branch}.tar.gz"
 fi
@@ -97,7 +97,7 @@ source=(
   "${_src}"
 )
 sha256sums=(
-  SKIP
+  'SKIP'
 )
 
 _nth() {
@@ -215,22 +215,25 @@ build() {
 }
 
 package() {
+  local \
+    _make_opts=()
+  _make_opts=(
+    DESTDIR="${pkgdir}"
+    PREFIX="/usr"
+  )
   cd \
     "${_tarname}"
   make \
-    DESTDIR="${pkgdir}" \
-    PREFIX="/usr" \
+    "${_make_opts[@]}" \
     install
   if [[ "${_solc}" == "true" ]]; then
     make \
-      DESTDIR="${pkgdir}" \
-      PREFIX="/usr" \
+      "${_make_opts[@]}" \
       install-contracts-deployments-solc
   fi
   if [[ "${_hardhat}" == "true" ]]; then
     make \
-      DESTDIR="${pkgdir}" \
-      PREFIX="/usr" \
+      "${_make_opts[@]}" \
       install-contracts-deployments-hardhat
   fi
 }
