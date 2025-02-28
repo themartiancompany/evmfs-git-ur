@@ -21,7 +21,7 @@ _pkgdesc=(
 )
 pkgdesc="${_pkgdesc[*]}"
 arch=(
-  any
+  'any'
 )
 _branch="master"
 _tarname="${_pkg}-${_branch}"
