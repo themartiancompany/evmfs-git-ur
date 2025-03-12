@@ -42,6 +42,7 @@ depends=(
   "encoding-tools"
   "libcrash-bash"
   "libcrash-js"
+  "node-run"
 )
 [[ "${_os}" == 'GNU/Linux' ]] && \
   depends+=(
